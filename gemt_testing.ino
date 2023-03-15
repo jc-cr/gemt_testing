@@ -3,11 +3,22 @@
 
 /*========================================================================
  TODO:
-  - Create a manual servo menu screen
-  - Create a test result screen with "ok" confimrtations
-  - Create updating outputs for ultrasonic testing screen
+  - Create a manual servo menu screen - DONE
+  - Create a test result screen with "ok" confimrtations - DONE
+  - Create updating outputs for ultrasonic testing screen - DONE
   - 
 ========================================================================*/
+
+static Menu MainMenu[]
+{
+  {1, "Ultrasonic Test", ultraSonicSensorConnections},
+  {2, "9G Servo Menu", servoMenu},
+};
+
+size_t mainMenuLen = sizeof(MainMenu) / sizeof(MainMenu[0]);
+
+Menu* CurrentMenuPtr = MainMenu;
+size_t* currentMenuLengthPtr = mainMenuLen;
 
 void setup(void)
 {
@@ -25,7 +36,7 @@ int main(void)
   // This where you place whatever needs to be tested
   while(true)
   {
-    
+    displayMenu(CurrentMenuPtr, currentMenuLengthPtr);
     delay(3);
   }
   
