@@ -13,6 +13,9 @@ static Menu MainMenu[]
 {
   {1, "Ultrasonic Test", ultraSonicSensorConnections},
   {2, "9G Servo Menu", servoMenu},
+  {3, "ESR Test", esrConnections},
+  {4, "nRF24 Test", nrfConnections},
+  {5, "L8298N Test", l8298nConnections},
 };
 
 size_t mainMenuLen = sizeof(MainMenu) / sizeof(MainMenu[0]);
@@ -25,6 +28,29 @@ void setup(void)
   delay(500);
   Serial.begin(115200); // DEBUGGING
   startInterface();
+  
+  //ESR Pins
+  pinMode(ESR_PIN, INPUT);//reading miliVolt
+  pinMode(PULSE_PIN, OUTPUT);
+  pinMode(DISCHARGE_PIN, OUTPUT);
+
+  //L8298 Pins
+  pinMode(L8ENA, OUTPUT);
+  pinMode(L8IN1, OUTPUT);
+  pinMode(L8IN2, OUTPUT);
+  pinMode(L8ENB, OUTPUT);
+  pinMode(L8IN3, OUTPUT);
+  pinMode(L8IN4, OUTPUT);
+
+  //Ultrasonic Sensor Pins
+  pinMode(triggerPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  //nRF Pins
+
+  //Servo Pins
+
+  
 }
 
 int main(void) 
