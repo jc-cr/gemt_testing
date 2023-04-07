@@ -357,7 +357,6 @@ void manualServoTest(void)
   servo.write(0);
   servo.attach(servoPWMPin);
   
-  
   while(!clicked)
   {
     eb1.update();
